@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+  dynamodb:
+    image: amazon/dynamodb-local
+    command: ["-jar", "DynamoDBLocal.jar", "-sharedDb", "-inMemory"]
+    ports:
+      - "8000:8000"
+    networks:
+      - private
+
+networks:
+  private:
+    driver: bridge
